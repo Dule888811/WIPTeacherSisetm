@@ -58,6 +58,7 @@ class QuestionsController extends Controller
             'name' => $request->post('name'),
             'expression' => $request->post('expression'),
             'test_id' => $test_id ,
+            'answer' => $request->post('answer'),
         ]);
         $question->save();
         return redirect()->back();

@@ -45,7 +45,7 @@ class LoginController extends Controller
             $this->redirectTo = route('admin.tests.create');
             return $this->redirectTo;
         }
-        $this->redirectTo = route('home');
+        $this->redirectTo = route('tests.index');
         return $this->redirectTo;
     }
 }

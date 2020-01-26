@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 class Question  extends Model
 {
     protected $fillable = [
-        'name','expression','test_id','answer_id',
+        'name','expression','test_id','answer',
     ];
 
     public function Answers()
     {
-        $this->hasMany('App\Answer');
+        $this->hasOne('App\Answer');
     }
 
     public function Tests()

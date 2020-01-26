@@ -20,7 +20,9 @@ class CreateQuestionsTable extends Migration
             $table->collation = 'utf8_unicode_ci';
             $table->string('expression');
             $table->increments('id');
+            $table->integer('answer');
             $table->string('name');
+
             $table->timestamps();
         });
     }

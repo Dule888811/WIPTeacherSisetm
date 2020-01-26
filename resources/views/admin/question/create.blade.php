@@ -23,6 +23,11 @@
             <input type="text" name="expression">
         </div>
 
+        <div class="form-input">
+            <label for="answer	">answer</label>
+            <input type="text" name="answer">
+        </div>
+
         <select name="test_id">
             <option value={{$test_id}} selected>{{$test_id}}</option>
         </select>
