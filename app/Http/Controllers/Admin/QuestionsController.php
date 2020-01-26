@@ -17,7 +17,7 @@ class QuestionsController extends Controller
     public function index()
     {
         $questions = Question::all();
-        return view('admin.question.index')->with('tests',$questions);
+        return view('admin.question.index')->with('questions',$questions);
     }
 
     /**
@@ -48,13 +48,21 @@ class QuestionsController extends Controller
             'name' => 'required',
             'expression' => 'expression',
         ]); */
+
+        $url = url()->full();
+        $url = explode('?',$url);
+        $test_id = $url[1];
+        $test_id =explode('=',$test_id);
+        $test_id=$test_id[0];
         $question = new Question([
             'name' => $request->post('name'),
             'expression' => $request->post('expression'),
-            'text_id' => $request->post('text_id'),
+            'test_id' => $test_id ,
         ]);
         $question->save();
         return redirect()->back();
+
+
     }
 
     /**

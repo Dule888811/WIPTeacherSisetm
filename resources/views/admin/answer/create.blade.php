@@ -10,8 +10,11 @@
         <div class="form-input">
             <label for="name_test">Value</label>
             <input type="text" name="value">
+            <select name="test_id">
+                <option value={{$question_id}} selected>{{$question_id}}</option>
+            </select>
             <input type="submit" value="submit">
         </div>
-        <a href="{{route('admin.answers.index')}}">Back to index</a>
+
 
 @endsection

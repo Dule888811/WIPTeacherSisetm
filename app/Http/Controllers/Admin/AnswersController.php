@@ -37,14 +37,15 @@ class AnswersController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'value' => 'required',
-        ]);
-        $test = new Test(array(
+
+     /*   $answer->validate($request,[
+            'value' => 'required|int',
+        ]); */
+        $answer = new Answer(array(
             'value' => $request->post('value'),
 
         ));
-        $test->save();
+        $answer->save();
         return redirect()->route('admin.answer.index');
     }
 

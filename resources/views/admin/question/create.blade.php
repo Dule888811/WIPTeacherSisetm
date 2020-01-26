@@ -10,7 +10,7 @@
         @endforeach
     @endif
 
-    <form action ="{{route('admin.question.store')}}" method="post">
+    <form action ="{{route('admin.question.store',$test_id)}}" method="post">
         {{csrf_field()}}
 
         <div class="form-input">
@@ -24,12 +24,13 @@
         </div>
 
         <select name="test_id">
-            <option value="test_id">{{$test_id}}</option>
+            <option value={{$test_id}} selected>{{$test_id}}</option>
         </select>
+
         <div class="form-input">
             <button type="submit">Submit</button>
         </div>
     </form>
-    <a href="{{route('admin.questions.index')}}">Back to test</a>
+    <a href="{{route('admin.tests.index')}}">Back to index</a>
 
 @endsection

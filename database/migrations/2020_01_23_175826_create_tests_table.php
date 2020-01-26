@@ -13,6 +13,7 @@ class CreateTestsTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('tests', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';

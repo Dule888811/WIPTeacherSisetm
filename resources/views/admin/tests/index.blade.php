@@ -9,9 +9,11 @@
         @foreach($tests as $test)
             <ul class="ul-tests">
                 <li class="li-tests">Test name: {{$test->name}}</li>
+
                 <a class="btn btn-primary" href="{{route('admin.question.create',$test->id)}}" role="button">Add questions</a>
             </ul>
     @endforeach
             <a href="{{route('admin.tests.create')}}">Create new test</a>
+
     </div>
 @endsection

@@ -13,6 +13,7 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('answers', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
@@ -31,7 +32,7 @@ class CreateAnswersTable extends Migration
     public function down()
     {
         Schema::table('answers', function (Blueprint $table) {
-            //
+            Schema::dropIfExists('answers');
         });
     }
 }
