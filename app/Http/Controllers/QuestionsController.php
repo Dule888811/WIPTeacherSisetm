@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Question;
+use App\Test;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
-use Validator;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+
 class QuestionsController extends Controller
 {
     /**
@@ -18,12 +16,20 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
 
+        $url = url()->full();
+        $url = explode('?',$url);
+        $test_id = $url[1];
+        $test_id =explode('=',$test_id);
+        $test_id=$test_id[0];
+     //   $questions = null;
+     //   $questions = Question::all()->whereIs('test_id' == $test_id);
+     //   dd($questions);/
+     //   dd(Test::find($test_id)->Questions()->get());
+      $questions=Test::find($test_id)->Questions()->get();
+        $questions = $questions->ToArray();
+        return view('question.index')->with('questions',$questions);
 
-
-
-        return view('admin.question.index')->with('questions',$questions);
 
     }
 
@@ -34,13 +40,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        $url = url()->full();
-       $url = explode('?',$url);
-        $test_id = $url[1];
-        $test_id =explode('=',$test_id);
-        $test_id=$test_id[0];
-        return view('admin.question.create')->with('test_id',$test_id);
-
+        //
     }
 
     /**
@@ -51,26 +51,7 @@ class QuestionsController extends Controller
      */
     public function store(Request $request)
     {
-    /*    $this->validate($request, [
-            'name' => 'required',
-            'expression' => 'expression',
-        ]); */
-
-        $url = url()->full();
-        $url = explode('?',$url);
-        $test_id = $url[1];
-        $test_id =explode('=',$test_id);
-        $test_id=$test_id[0];
-        $question = new Question([
-            'name' => $request->post('name'),
-            'expression' => $request->post('expression'),
-            'test_id' => $test_id ,
-            'answer' => $request->post('answer'),
-        ]);
-        $question->save();
-        return redirect()->back();
-
-
+        //
     }
 
     /**
@@ -79,9 +60,14 @@ class QuestionsController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(Question $question)
+    public function show($id)
     {
-       //
+       // dd($request);
+   /*     $test= Test::find($id)->get();
+        dd($test);
+        $questions = $test->Questions();
+        dd($questions); */
+
     }
 
     /**

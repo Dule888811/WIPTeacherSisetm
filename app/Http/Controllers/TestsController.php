@@ -13,4 +13,6 @@ class TestsController extends Controller
         $tests =Test::all();
         return view('tests.index')->with('tests',$tests);
     }
+
+
 }

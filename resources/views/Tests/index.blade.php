@@ -10,7 +10,7 @@
             <ul class="ul-tests">
                 <li class="li-tests">Test name: {{$test->name}}</li>
 
-                <a class="btn btn-primary" href="{{route('tests.show',$test->id)}}" role="button">Add questions</a>
+                <a class="btn btn-primary" href="{{route('question.index',$test->id)}}">See test</a>
             </ul>
         @endforeach
 

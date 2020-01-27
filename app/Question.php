@@ -17,7 +17,7 @@ class Question  extends Model
         $this->hasOne('App\Answer');
     }
 
-    public function Tests()
+    public function Test()
     {
         $this->belongsTo('App\Test');
     }
