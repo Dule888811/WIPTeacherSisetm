@@ -19,7 +19,9 @@ class QuestionsController extends Controller
 
         $url = url()->full();
         $url = explode('?',$url);
-        $test_id = $url[1];
+        if(isset($url[1])){
+            $test_id = $url[1];
+        }
         $test_id =explode('=',$test_id);
         $test_id=$test_id[0];
      //   $questions = null;
@@ -29,6 +31,15 @@ class QuestionsController extends Controller
       $questions=Test::find($test_id)->Questions()->get();
         $questions = $questions->ToArray();
         return view('question.index')->with('questions',$questions);
+
+
+    }
+
+    public function answer($id)
+    {
+        $questions=Test::find($test_id)->Questions()->get();
+        $questions = $questions->ToArray();
+        return view('question.results')->with('questions',$questions);
 
 
     }
