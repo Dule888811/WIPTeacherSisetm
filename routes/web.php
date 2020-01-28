@@ -15,10 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/question.results/{$id}', function($id){
-    return view('question.results');
-});
+Route::get('/answer','QuestionsController@answer')->name('answer');
 Route::resource('tests','TestsController');
 Route::resource('question','QuestionsController');
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){

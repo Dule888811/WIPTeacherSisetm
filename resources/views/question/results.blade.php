@@ -1,15 +1,10 @@
-extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
+    <div calss="tests">
 
-
-    @for($i=0;$i<count($questions);$i++)
-
-        <h2>{{$questions[$i]['name']}}</h2>
-        <h2>{{$questions[$i]['expression']}}</h2>
-        <h2>{{$questions[$i]['answer']}}</h2>
+        <h2 class="list">{{$question['answer']}}</h2>
+        <a class="btn btn-primary" href="{{route('tests.index')}}">Back to tests</a>
         <hr>
-    @endfor
-
 
 @endsection

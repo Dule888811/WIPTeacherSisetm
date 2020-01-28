@@ -4,12 +4,11 @@
 
 
 @for($i=0;$i<count($questions);$i++)
-
-    <h2>{{$questions[$i]['name']}}</h2>
-    <h2>{{$questions[$i]['expression']}}</h2>
-    <h2><a href="../question.results/{{$questions[$i]['id']}}">See the results</a></h2>
-        <hr>
+    <div calss="tests">
+    <h2 class="list">Name</h2><p>{{$questions[$i]['name']}}</p>
+    <h2>question</h2><p>{{$questions[$i]['expression']}}</p>
+        <a class="btn btn-primary" href="{{route('answer',$rd = $questions[$i]['id'])}}">See result</a>
+    <hr>89
 @endfor
-
 
 @endsection
