@@ -39,7 +39,7 @@ class QuestionsController extends Controller
         }
         $question_id =explode('=',$question_id);
         $question_id=$question_id[0];
-        $question = Question::find($question_id)->first();
+        $question = Question::find($question_id);
         $question->toArray();
        return view('question.results')->with('question',$question);
 
